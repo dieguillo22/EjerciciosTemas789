@@ -1,9 +1,6 @@
 package Temas789;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -144,6 +141,28 @@ public class Main {
             dividePorCero(A,B);
         } catch (ArithmeticException e) {
             System.out.println("¡No se puede dividir por cero!");
+        }
+        System.out.print("\n");
+        System.out.print("\n");
+
+        // 9. Se crea funsion con InputStream y PrintStream, con los parámetros: "fileIn" y "fileOut".
+        //    con el fin de leer un fichero en "fileIn" y copiarlo al fichero en "fileOut".
+
+        try {
+            InputStream fileIn = new FileInputStream("C:\\Users\\diegu\\IdeaProjects\\EjerciciosTemas789\\TextoEjercicios789.txt");
+            /* int b = fileIn.read();
+            while (b != -1){
+                System.out.print((char) b);
+                b = fileIn.read();
+
+            }*/
+            PrintStream fileOut =   new PrintStream("copia_texto_Ejercicio789.txt");
+            byte [] datos = fileIn.readAllBytes();
+            fileOut.write(datos);
+
+        } catch (Exception e) {
+            System.out.println("exepcion: "+ e.getMessage());
+
         }
 
     }
